@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="maryspeak.makejar" default="makejar" basedir=".">
+	<target name ="makejar" description="Create a jar for maryspeak">
+		<mkdir dir="bin"/>
+		<javac
+			srcdir="src"
+			encoding="iso-8859-1"
+			classpath="/opt/marytts/lib/marytts-runtime-5.2-jar-with-dependencies.jar;/opt/marytts/lib/marytts-client-5.2-jar-with-dependencies.jar"
+			destdir="bin"/>
+		<jar destfile="maryspeak.jar" >
+			<fileset dir="bin/">
+				<include name="**/*.class"/>
+			</fileset>
+			<fileset dir="src/">
+				<include name="maryspeak.txt"/>
+			</fileset>
+		</jar>
+	</target>
+</project>
